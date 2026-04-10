@@ -1,0 +1,142 @@
+:root {
+  color-scheme: light;
+  --bg: #f6f8fc;
+  --panel: #ffffff;
+  --text: #1b2230;
+  --muted: #5a647a;
+  --line: #d8deea;
+  --accent: #1f6feb;
+  --warn: #b42318;
+}
+
+* {
+  box-sizing: border-box;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+  margin: 0;
+  padding: 12px;
+  width: 460px;
+  background: var(--bg);
+  color: var(--text);
+}
+
+header h1 {
+  margin: 0;
+  font-size: 16px;
+}
+
+header p {
+  margin: 4px 0 10px;
+  font-size: 12px;
+  color: var(--muted);
+}
+
+.controls {
+  display: grid;
+  grid-template-columns: 60px 1fr 1fr 1fr;
+  gap: 6px;
+  margin-bottom: 10px;
+}
+
+.controls label {
+  align-self: center;
+  font-size: 12px;
+  color: var(--muted);
+}
+
+.controls select,
+.controls button {
+  border: 1px solid var(--line);
+  background: var(--panel);
+  border-radius: 8px;
+  padding: 6px 8px;
+  font-size: 12px;
+}
+
+.controls button {
+  cursor: pointer;
+}
+
+.controls button:hover {
+  border-color: var(--accent);
+}
+
+.controls .warn:hover {
+  border-color: var(--warn);
+  color: var(--warn);
+}
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 6px;
+  margin-bottom: 10px;
+}
+
+.stat-card {
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--panel);
+  padding: 8px;
+}
+
+.stat-card .label {
+  font-size: 11px;
+  color: var(--muted);
+}
+
+.stat-card .value {
+  margin-top: 2px;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+h2 {
+  font-size: 13px;
+  margin: 0 0 6px;
+}
+
+.table-wrap {
+  max-height: 280px;
+  overflow: auto;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--panel);
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th,
+td {
+  border-bottom: 1px solid var(--line);
+  text-align: left;
+  padding: 6px 8px;
+  font-size: 11px;
+  vertical-align: top;
+}
+
+th:nth-child(1),
+td:nth-child(1) {
+  width: 56px;
+}
+
+th:nth-child(2),
+td:nth-child(2) {
+  width: 68px;
+}
+
+tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.status {
+  min-height: 16px;
+  margin: 8px 0 0;
+  font-size: 11px;
+  color: var(--muted);
+}

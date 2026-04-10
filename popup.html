@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fingerprint Analyzer</title>
+    <link rel="stylesheet" href="popup.css" />
+  </head>
+  <body>
+    <header>
+      <h1>Fingerprint Analyzer</h1>
+      <p>Firefox-style DOM/BOM trace view for Chrome.</p>
+    </header>
+
+    <section class="controls">
+      <label for="scopeSelect">Scope</label>
+      <select id="scopeSelect">
+        <option value="tab">Current tab</option>
+        <option value="all">All tabs</option>
+      </select>
+
+      <button id="refreshBtn" type="button">Refresh</button>
+      <button id="clearBtn" type="button" class="warn">Clear</button>
+      <button id="exportBtn" type="button">Export JSON</button>
+      <button id="openAnalyzerBtn" type="button">Open Analyzer</button>
+    </section>
+
+    <section class="stats" id="statsPanel"></section>
+
+    <section>
+      <h2>Recent Events</h2>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Seq</th>
+              <th>Type</th>
+              <th>Interface</th>
+              <th>Member</th>
+            </tr>
+          </thead>
+          <tbody id="logsBody"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <p id="statusText" class="status"></p>
+
+    <script src="popup.js"></script>
+  </body>
+</html>

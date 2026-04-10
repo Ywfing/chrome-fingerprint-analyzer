@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fingerprint Log Analyzer</title>
+    <link rel="stylesheet" href="analyzer.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <div>
+        <h1>Chrome FingerPrint Analyzer</h1>
+        <p>Firefox 4-view parity: Statistics, Network/Cookie, Console, Canvas</p>
+      </div>
+      <div class="controls">
+        <input id="fileInput" type="file" accept=".json,.txt,application/json,text/plain" />
+        <button id="loadLiveBtn" type="button">Load Live</button>
+        <button id="exportBtn" type="button">Export Current</button>
+        <button id="styleBtn" type="button">Style</button>
+      </div>
+    </header>
+
+    <section class="summary" id="summaryPanel"></section>
+
+    <nav class="tabs">
+      <button type="button" class="tab-btn active" data-tab="stats">Statistics</button>
+      <button type="button" class="tab-btn" data-tab="network">Network/Cookie</button>
+      <button type="button" class="tab-btn" data-tab="console">Console</button>
+      <button type="button" class="tab-btn" data-tab="canvas">Canvas</button>
+    </nav>
+
+    <section class="filters">
+      <label>Interface</label>
+      <input id="interfaceFilter" type="text" placeholder="Window / Document / Navigator..." />
+      <label>Member</label>
+      <input id="memberFilter" type="text" placeholder="fetch / cookie / fillText..." />
+      <label>Text</label>
+      <input id="textFilter" type="text" placeholder="Search args/value/stack" />
+      <span id="resultInfo">0 events</span>
+    </section>
+
+    <section id="stylePanel" class="style-panel">
+      <div class="row">
+        <label for="fontFamilyInput">Font</label>
+        <select id="fontFamilyInput">
+          <option value="Segoe UI">Segoe UI</option>
+          <option value="Microsoft YaHei">Microsoft YaHei</option>
+          <option value="PingFang SC">PingFang SC</option>
+          <option value="Consolas">Consolas</option>
+        </select>
+      </div>
+      <div class="row">
+        <label for="fontSizeInput">Size</label>
+        <input id="fontSizeInput" type="number" min="10" max="24" value="13" />
+      </div>
+      <div class="row">
+        <label for="accentInput">Accent</label>
+        <input id="accentInput" type="color" value="#0b63f3" />
+      </div>
+      <div class="row">
+        <label for="bgInput">Background</label>
+        <input id="bgInput" type="color" value="#f5f7fb" />
+      </div>
+      <div class="row">
+        <label for="cardInput">Card</label>
+        <input id="cardInput" type="color" value="#ffffff" />
+      </div>
+      <div class="actions">
+        <button id="saveStyleBtn" type="button">Save Style</button>
+        <button id="resetStyleBtn" type="button">Reset</button>
+      </div>
+    </section>
+
+    <main class="content">
+      <section id="tab-stats" class="tab-panel active">
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Interface / Member</th>
+                <th>Calls</th>
+              </tr>
+            </thead>
+            <tbody id="statsBody"></tbody>
+          </table>
+        </div>
+      </section>
+
+      <section id="tab-network" class="tab-panel">
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Seq</th>
+                <th>Type</th>
+                <th>Interface</th>
+                <th>Method</th>
+                <th>Args / Value</th>
+                <th>Stack</th>
+              </tr>
+            </thead>
+            <tbody id="networkBody"></tbody>
+          </table>
+        </div>
+      </section>
+
+      <section id="tab-console" class="tab-panel">
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Seq</th>
+                <th>Type</th>
+                <th>Content</th>
+                <th>Source</th>
+              </tr>
+            </thead>
+            <tbody id="consoleBody"></tbody>
+          </table>
+        </div>
+      </section>
+
+      <section id="tab-canvas" class="tab-panel">
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Seq</th>
+                <th>Interface</th>
+                <th>Method</th>
+                <th>Args / Return / Value</th>
+                <th>Stack</th>
+              </tr>
+            </thead>
+            <tbody id="canvasBody"></tbody>
+          </table>
+        </div>
+      </section>
+    </main>
+
+    <script src="analyzer.js"></script>
+  </body>
+</html>
